@@ -33,4 +33,12 @@ describe("QueryProcessor", () => {
 		"Peter Parker"
     	);
     });
+    
+    test('should return Cristiano Ronaldo, SIUUUU', () => {
+        const query = "¿Quién es el bicho?";
+        const response: string = QueryProcessor(query);
+        expect(response).toBe(
+		"Cristiano Ronaldo, SIUUUU"
+    	);
+    });
 });
