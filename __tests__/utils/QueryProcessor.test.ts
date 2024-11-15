@@ -25,4 +25,12 @@ describe("QueryProcessor", () => {
 		"1410423"
     	);
     });
+    
+    test('should return Peter Parker', () => {
+        const query = "who is Spiderman?";
+        const response: string = QueryProcessor(query);
+        expect(response).toBe(
+		"Peter Parker"
+    	);
+    });
 });
