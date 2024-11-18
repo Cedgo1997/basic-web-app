@@ -47,6 +47,12 @@ describe("QueryProcessor", () => {
     const response: string = QueryProcessor(query);
     expect(response).toBe("84");
   });
+  
+  test("should return the product of two numbers", () => {
+    const query = "What is 2 multiplied by 4?";
+    const response: string = QueryProcessor(query);
+    expect(response).toBe("8");
+  });
 
   test("should return the largest number", () => {
     const query = "Which of the following numbers is the largest: 7, 43, 64?";
