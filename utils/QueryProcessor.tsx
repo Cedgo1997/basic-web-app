@@ -18,5 +18,9 @@ export default function QueryProcessor(query: string): string {
   if(query.toLowerCase().includes("el bicho")) {
     return "Cristiano Ronaldo, SIUUUU";
   }
+  
+  if(query.toLowerCase().includes("name")) {
+    return "César González";
+  }
   return "";
 }
