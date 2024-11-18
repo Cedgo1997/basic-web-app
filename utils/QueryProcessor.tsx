@@ -33,7 +33,7 @@ export default function QueryProcessor(query: string): string {
     const num2 = parseInt(numbers[1], 10);
     return `${num1 + num2}`;
   }
-  
+
   if (query.toLowerCase().includes("minus")) {
     const numbers = query.match(/\d+/g);
     if (numbers === null || numbers.length < 2) {
@@ -77,6 +77,18 @@ export default function QueryProcessor(query: string): string {
     const intNumbers = numbers.map((n) => Number(n));
     return `${findSquareAndCubeNumbers(intNumbers)[0]}`;
   }
+  
+  if (
+    query.toLowerCase().includes("prime")
+  ) {
+    const numbers = query.match(/\d+/g);
+    if (numbers === null || numbers.length < 2) {
+      return "";
+    }
+    const intNumbers = numbers.map((n) => Number(n));
+    const primes = findPrimeNumbers(intNumbers);
+    return primes.join(", ").toString();
+  }
   return "";
 }
 
@@ -90,4 +102,17 @@ function isSquareAndCube(num: number) {
 
 function findSquareAndCubeNumbers(numbers: number[]) {
   return numbers.filter(isSquareAndCube);
+}
+
+function isPrime(num: number) {
+  if (num <= 1) return false;
+  if (num <= 3) return true;
+  if (num % 2 === 0 || num % 3 === 0) return false;
+  for (let i = 5; i * i <= num; i += 6) {
+    if (num % i === 0 || num % (i + 2) === 0) return false;
+  }
+  return true;
+}
+function findPrimeNumbers(numbers: number[]) {
+  return numbers.filter(isPrime);
 }

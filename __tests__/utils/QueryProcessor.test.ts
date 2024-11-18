@@ -72,4 +72,11 @@ describe("QueryProcessor", () => {
     const response: string = QueryProcessor(query);
     expect(response).toBe("729");
   });
+  
+  test("should return the prime", () => {
+    const query =
+      "Which of the following numbers are primes: 17, 2, 54, 12, 13?";
+    const response: string = QueryProcessor(query);
+    expect(response).toBe("17, 2, 13");
+  });
 });
