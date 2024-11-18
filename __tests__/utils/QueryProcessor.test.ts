@@ -47,7 +47,7 @@ describe("QueryProcessor", () => {
     const response: string = QueryProcessor(query);
     expect(response).toBe("84");
   });
-  
+
   test("should return the product of two numbers", () => {
     const query = "What is 2 multiplied by 4?";
     const response: string = QueryProcessor(query);
@@ -58,5 +58,12 @@ describe("QueryProcessor", () => {
     const query = "Which of the following numbers is the largest: 7, 43, 64?";
     const response: string = QueryProcessor(query);
     expect(response).toBe("64");
+  });
+
+  test("should return the cube and square number", () => {
+    const query =
+      "Which of the following numbers is both a square and a cube: 534, 729, 2478, 4701, 1, 4761, 249?";
+    const response: string = QueryProcessor(query);
+    expect(response).toBe("729");
   });
 });

@@ -54,5 +54,29 @@ export default function QueryProcessor(query: string): string {
 
     return `${Math.max(...intNumbers)}`;
   }
+
+  if (
+    query.toLowerCase().includes("square") &&
+    query.toLowerCase().includes("cube")
+  ) {
+    const numbers = query.match(/\d+/g);
+    if (numbers === null || numbers.length < 2) {
+      return "";
+    }
+    const intNumbers = numbers.map((n) => Number(n));
+    return `${findSquareAndCubeNumbers(intNumbers)[0]}`;
+  }
   return "";
+}
+
+function isSquareAndCube(num: number) {
+  const sqrt = Math.sqrt(num);
+  const isSquare = sqrt === Math.floor(sqrt);
+  const cbrt = Math.cbrt(num);
+  const isCube = cbrt === Math.floor(cbrt);
+  return isSquare && isCube;
+}
+
+function findSquareAndCubeNumbers(numbers: number[]) {
+  return numbers.filter(isSquareAndCube);
 }
