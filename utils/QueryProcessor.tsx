@@ -33,5 +33,16 @@ export default function QueryProcessor(query: string): string {
     const num2 = parseInt(numbers[1], 10);
     return `${num1 + num2}`;
   }
+
+  if (query.toLowerCase().includes("largest")) {
+    const numbers = query.match(/\d+/g);
+    if (numbers === null || numbers.length < 2) {
+      return "";
+    }
+
+    const intNumbers = numbers.map((n) => Number(n));
+
+    return `${Math.max(...intNumbers)}`;
+  }
   return "";
 }
