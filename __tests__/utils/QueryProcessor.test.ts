@@ -47,6 +47,12 @@ describe("QueryProcessor", () => {
     const response: string = QueryProcessor(query);
     expect(response).toBe("84");
   });
+  
+  test("should return the rest of two numbers", () => {
+    const query = "What is 3 minus 2?";
+    const response: string = QueryProcessor(query);
+    expect(response).toBe("1");
+  });
 
   test("should return the product of two numbers", () => {
     const query = "What is 2 multiplied by 4?";
