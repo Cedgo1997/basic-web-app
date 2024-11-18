@@ -49,4 +49,12 @@ describe("QueryProcessor", () => {
 		"Cristiano Ronaldo, SIUUUU"
     	);
     });
+    
+    test('should return 84', () => {
+        const query = "What is 7 plus 77?";
+        const response: string = QueryProcessor(query);
+        expect(response).toBe(
+		"84"
+    	);
+    });
 });
