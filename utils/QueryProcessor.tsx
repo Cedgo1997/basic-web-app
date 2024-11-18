@@ -11,20 +11,27 @@ export default function QueryProcessor(query: string): string {
     return "1410423";
   }
 
-  if(query.toLowerCase().includes("spiderman")) {
+  if (query.toLowerCase().includes("spiderman")) {
     return "Peter Parker";
   }
-  
-  if(query.toLowerCase().includes("el bicho")) {
+
+  if (query.toLowerCase().includes("el bicho")) {
     return "Cristiano Ronaldo, SIUUUU";
   }
-  
-  if(query.toLowerCase().includes("name")) {
+
+  if (query.toLowerCase().includes("name")) {
     return "César González";
   }
-  
-  if(query.toLowerCase().includes("7") && query.toLowerCase().includes("7")) {
-    return "84";
+
+  if (query.toLowerCase().includes("plus")) {
+    const numbers = query.match(/\d+/g);
+    if (numbers === null || numbers.length < 2) {
+      return "";
+    }
+
+    const num1 = parseInt(numbers[0], 10);
+    const num2 = parseInt(numbers[1], 10);
+    return `${num1 + num2}`;
   }
   return "";
 }
