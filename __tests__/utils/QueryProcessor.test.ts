@@ -26,6 +26,14 @@ describe("QueryProcessor", () => {
     	);
     });
     
+    test('should return my USB ID', () => {
+        const query = "what's your name?";
+        const response: string = QueryProcessor(query);
+        expect(response).toBe(
+		"César González"
+    	);
+    });
+    
     test('should return Peter Parker', () => {
         const query = "who is Spiderman?";
         const response: string = QueryProcessor(query);
